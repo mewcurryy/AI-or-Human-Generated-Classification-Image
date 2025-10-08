@@ -7,7 +7,6 @@ import tempfile
 import os
 import shutil
 
-
 st.set_page_config(
     page_title="Human vs AI Image Detector",
     page_icon="🤖",
@@ -28,20 +27,24 @@ def load_keras_model(model_path):
 # --- Fungsi untuk Preprocessing Gambar ---
 def preprocess_image(image, target_size=(512, 512)):
     """
-    Mengubah ukuran dan menormalisasi gambar agar sesuai
+    Mengubah ukuran, menormalisasi, dan menggelapkan gambar agar sesuai
     dengan input model.
     """
     if image.mode != "RGB":
         image = image.convert("RGB")
     
-    # Resize gambar
     img = image.resize(target_size)
     
     img_array = np.array(img)
     img_array = np.expand_dims(img_array, axis=0) 
-    img_array = img_array / 255.0 
     
-    return img_array
+    img_array = img_array / 255.0
+    
+    darkening_factor = 0.6
+    darkened_image_array = img_array * darkening_factor
+    
+    return darkened_image_array
+
 
 
 def main():
@@ -51,7 +54,7 @@ def main():
     """)
     st.divider()
     
-    model = load_keras_model('./models/MobileNetV2-AIvsHumanGenImages-Final.keras')
+    model = load_keras_model('./models/ResNet50V2-AIvsHumanGenImages-Final.keras')
     if model is None:
         st.warning("Model tidak dapat dimuat. Pastikan file model ada di direktori yang sama.")
         return
@@ -67,7 +70,7 @@ def main():
             
         col1, col2 = st.columns(2)
         with col1:
-            st.image(image, caption="Gambar yang Diunggah", use_container_width=True)
+            st.image(image, caption="Gambar yang Diunggah", use_column_width=True)
             
         with st.spinner('Menganalisis gambar...'):
             processed_image = preprocess_image(image)
