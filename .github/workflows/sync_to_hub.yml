@@ -17,4 +17,4 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push https://merkuribingung:$HF_TOKEN@huggingface.co/spaces/merkuribingung/AI-or-Human-Generated-Classification-Image main
+          git push --force https://merkuribingung:$HF_TOKEN@huggingface.co/spaces/merkuribingung/AI-or-Human-Generated-Classification-Image main
