@@ -174,12 +174,12 @@ document.addEventListener('DOMContentLoaded', function() {
             resultIcon.className = 'result-icon human';
             resultIcon.innerHTML = '<i class="fas fa-user"></i>';
             resultTitle.className = 'result-title human';
-            resultTitle.textContent = 'Gambar ini sepertinya dibuat oleh Manusia';
+            resultTitle.textContent = 'This image looks like it was made by a Human';
         } else {
             resultIcon.className = 'result-icon ai';
             resultIcon.innerHTML = '<i class="fas fa-robot"></i>';
             resultTitle.className = 'result-title ai';
-            resultTitle.textContent = 'Gambar ini sepertinya dibuat oleh AI';
+            resultTitle.textContent = 'This image looks like it was created by AI';
         }
         
         document.getElementById(`${type}Confidence`).textContent = `${confidence.toFixed(2)}%`;
