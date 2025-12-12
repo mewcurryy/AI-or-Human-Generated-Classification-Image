@@ -40,7 +40,7 @@ def getLinkPost(link):
 
 def classify_image(image):
     if model is None:
-        return {"error": "Model tidak dapat dimuat. Pastikan file model ada di direktori yang sama."}
+        return {"error": "Model could not be loaded. Make sure the model file exists in the directory."}
     
     processed_image = preprocess_image(image)
     prediction = model.predict(processed_image)
@@ -59,7 +59,7 @@ def classify_image(image):
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload size
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
@@ -92,22 +92,22 @@ def instagram_fetch():
         return jsonify({"error": "No URL provided"}), 400
     
     if "instagram.com" not in ig_url:
-        return jsonify({"error": "Link tidak valid. Pastikan itu link Instagram."}), 400
+        return jsonify({"error": "Invalid link. Please provide a valid Instagram post URL."}), 400
     
     if "/reel/" in ig_url:
-        return jsonify({"error": "Post ini berupa reels. Hanya gambar yang bisa diproses."}), 400
+        return jsonify({"error": "This is an Instagram reel. Only image posts are supported."}), 400
     
     try:
         shortcode = getLinkPost(ig_url)
         L = instaloader.Instaloader()
         post = instaloader.Post.from_shortcode(L.context, shortcode)
     except instaloader.exceptions.BadResponseException:
-        return jsonify({"error": "Post tidak bisa diakses. Kemungkinan akun private."}), 400
+        return jsonify({"error": "The post cannot be accessed. It might be private."}), 400
     except Exception as e:
-        return jsonify({"error": f"Tidak dapat mengakses Instagram. Kemungkinan IP server diblokir IG."}), 400
+        return jsonify({"error": f"Unable to access Instagram. Your server IP may be blocked by Instagram."}), 400
     
     if post.is_video:
-        return jsonify({"error": "Post ini berupa video. Hanya gambar yang bisa diproses."}), 400
+        return jsonify({"error": "This post is a video. Only image posts are supported."}), 400
     
     try:
         image_url = post.url 
@@ -120,7 +120,7 @@ def instagram_fetch():
             result['image_data'] = img_base64
             return jsonify(result)
         else:
-            return jsonify({"error": "Gagal mengunduh gambar dari Instagram."}), 400
+            return jsonify({"error": "Failed to download the image from Instagram."}), 400
     except Exception as e:
         return jsonify({"error": f"Error processing image: {str(e)}"}), 500
 
