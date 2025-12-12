@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human vs AI Image Detector</title>
+    <title>Detektor Gambar: AI vs Manusia</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -25,6 +25,99 @@
 
     <main>
         <div class="container">
+
+            <!-- info ai vs human generated image itu apa -->
+            <section class="info-section">
+                <div class="info-grid">
+                    <div class="info-image">
+                        <img src="https://devrw2.blob.core.windows.net/rw-website/assets/AI_vs_human_b96d62a7bd.png" alt="AI vs Human Detection">
+                    </div>
+                    <div class="info-content">
+                        <h2>Apa Itu Gambar AI vs Manusia?</h2>
+                        <p class="info-subtitle">Mengapa Deteksi Ini Penting untuk Anda?</p>
+                        <p class="info-description">
+                            Di era digital saat ini, kemampuan untuk membedakan antara gambar yang dibuat oleh manusia dan yang dihasilkan oleh AI menjadi semakin krusial. Teknologi AI generatif telah berkembang pesat, menciptakan gambar yang hampir tidak dapat dibedakan dari foto asli.
+                        </p>
+                        <div class="info-points">
+                            <div class="info-point">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mencegah penyebaran berita palsu dan disinformasi</span>
+                            </div>
+                            <div class="info-point">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Melindungi dari penipuan digital dan manipulasi</span>
+                            </div>
+                            <div class="info-point">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Menjaga keaslian konten visual</span>
+                            </div>
+                            <div class="info-point">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Meningkatkan literasi digital masyarakat</span>
+                            </div>
+                        </div>
+                        <p class="info-conclusion">
+                            Dengan detektor kami, Anda dapat dengan mudah memverifikasi keaslian gambar dan membuat keputusan yang lebih informasi dalam konsumsi konten digital.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- jelasin keunggulan -->
+            <section class="features-section">
+                <h2 class="section-title">Keunggulan Kami</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Deep Learning Core</h3>
+                        <p>Ditenagai oleh CNN Transfer Learning canggih (ResNet/DenseNet) untuk klasifikasi presisi tinggi.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Anti-Deepfake</h3>
+                        <p>Mendeteksi media sintetis yang dihasilkan AI untuk mencegah misinformasi dan penipuan.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Privasi Prioritas</h3>
+                        <p>Gambar Anda diproses secara aman secara real-time dan tidak pernah disimpan di server kami.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Analisis Instan</h3>
+                        <p>Dapatkan hasil dalam hitungan detik dengan mesin inferensi yang dioptimalkan.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Akurasi Tinggi</h3>
+                        <p>Tingkat akurasi mencapai 96% dalam mendeteksi gambar AI vs manusia dengan dataset yang terus diperbarui.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Multi-Platform</h3>
+                        <p>Dapat diakses dari berbagai perangkat, desktop hingga mobile dengan pengalaman yang optimal.</p>
+                    </div>
+                </div>
+            </section>
+
+
             <div class="tabs">
                 <div class="tab active" data-tab="upload">📁 Deteksi dari Upload Gambar</div>
                 <div class="tab" data-tab="instagram">📸 Deteksi dari Link Instagram</div>
@@ -145,7 +238,5 @@
             <p>&copy; 2025 Human vs AI Image Detector. All rights reserved.</p>
         </div>
     </footer>
-
-    
 </body>
 </html>

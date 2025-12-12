@@ -61,10 +61,8 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload size
 
-# Create uploads directory if it doesn't exist
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-# Load the model at startup
 model = load_keras_model('./models/ResNet50V2-AIvsHumanGenImages-Final.keras')
 
 @app.route('/')
@@ -106,7 +104,7 @@ def instagram_fetch():
     except instaloader.exceptions.BadResponseException:
         return jsonify({"error": "Post tidak bisa diakses. Kemungkinan akun private."}), 400
     except Exception as e:
-        return jsonify({"error": f"Tidak dapat mengakses Instagram. Kemungkinan IP server diblokir IG. {str(e)}"}), 400
+        return jsonify({"error": f"Tidak dapat mengakses Instagram. Kemungkinan IP server diblokir IG."}), 400
     
     if post.is_video:
         return jsonify({"error": "Post ini berupa video. Hanya gambar yang bisa diproses."}), 400
