@@ -16,7 +16,7 @@ Try the application live on Hugging Face Spaces:
 
 * **🔍 Dual Detection Support**:
     * **File Upload**: Analyze images directly from your device.
-    * **Instagram Integration**: Input an Instagram post URL to analyze the image directly (powered by `instaloader`).
+    * **Instagram Integration**: Input an Instagram post URL to analyze the image directly (use `instaloader`).
       
 * **🧠 Deep Learning Core**: Uses Transfer Learning with state-of-the-art architectures (ResNet50V2) for high accuracy.
 * **📊 Detailed Analysis**: Provides probability scores (confidence level) for both AI and human predictions.
@@ -29,7 +29,7 @@ Try the application live on Hugging Face Spaces:
 
 * **Backend**: Python, Flask, Gunicorn
 * **AI/ML Engine**: TensorFlow, Keras, NumPy, Pillow
-* **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+* **User Interface**: HTML5, CSS3, JavaScript (Vanilla)
 * **Utilities**: Instaloader (for fetch Instagram posts)
 * **DevOps**: Docker, GitHub Actions (CI/CD)
 
