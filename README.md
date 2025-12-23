@@ -39,7 +39,7 @@ Try the application live on Hugging Face Spaces:
 
 ```text
 ├── logs/                 # CSV file logs from model training
-├── models/               # Pre-trained .keras models (ResNet50V2)
+├── models/               # Pre-trained .keras models 
 ├── plots/                # Model comparison plots
 ├── static/               # CSS and JS files
 │   ├── style.css
